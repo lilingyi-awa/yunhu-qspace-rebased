@@ -19,8 +19,8 @@ SPDX-License-Identifier: AGPL-3.0-only
 				<div v-html="instance.description || i18n.ts.headlineMisskey"></div>
 			</div>
 			<div class="_gaps_s" :class="$style.mainActions">
-				<MkButton :class="$style.mainAction" full rounded gradate data-cy-signup style="margin-right: 12px;" link to="https://yhfx.jwznb.com/share?key=jOQ9uIYhYOP5&ts=1770886702">使用Cordys登录</MkButton>
-				<MkButton :class="$style.mainAction" full rounded data-cy-signin link to="https://ars.lilingyi-awa.top/yunhubot/oauth-invoke">使用OAuth登录</MkButton>
+				<MkButton :class="$style.mainAction" full rounded type="a" target="_blank" rel="noopener" gradate data-cy-signup style="margin-right: 12px;" href="https://yhfx.jwznb.com/share?key=jOQ9uIYhYOP5&ts=1770886702">使用Cordys登录</MkButton>
+				<MkButton :class="$style.mainAction" full rounded type="a" target="_blank" rel="noopener" href="https://ars.lilingyi-awa.top/yunhubot/oauth-invoke">使用OAuth登录</MkButton>
 				<MkButton :class="$style.mainAction" full rounded data-cy-signin @click="signin()">使用账密登录</MkButton>
 			</div>
 		</div>

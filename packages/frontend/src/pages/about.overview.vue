@@ -21,30 +21,11 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 	<FormSection>
 		<div class="_gaps_m">
-			<MkKeyValue :copy="version">
-				<template #key>Misskey</template>
-				<template #value>{{ version }}</template>
-			</MkKeyValue>
-			<div v-html="i18n.tsx.poweredByMisskeyDescription({ name: instance.name ?? host })">
-			</div>
-			<FormLink to="/about-misskey">
-				<template #icon><i class="ti ti-info-circle"></i></template>
-				{{ i18n.ts.aboutMisskey }}
-			</FormLink>
-			<FormLink to="https://yhfx.jwznb.com/share?key=UGHUaiFnRlLU&ts=1780400878" external>
-				<template #icon><i class="ti ti-messages"></i></template>
-				交流群
-			</FormLink>
-			<FormLink to="/@7261230/pages/opensource">
-				<template #icon><i class="ti ti-code"></i></template>
-				{{ i18n.ts.sourceCode }}
-			</FormLink>
-		</div>
-	</FormSection>
-
-	<FormSection>
-		<div class="_gaps_m">
 			<FormSplit>
+				<MkKeyValue :copy="version">
+					<template #key>Misskey</template>
+					<template #value>{{ version }}</template>
+				</MkKeyValue>
 				<MkKeyValue :copy="instance.maintainerName">
 					<template #key>{{ i18n.ts.administrator }}</template>
 					<template #value>
@@ -68,6 +49,10 @@ SPDX-License-Identifier: AGPL-3.0-only
 				</MkKeyValue>
 			</FormSplit>
 			<div class="_gaps_s">
+				<FormLink to="/about-misskey">
+					<template #icon><i class="ti ti-info-circle"></i></template>
+					{{ i18n.ts.aboutMisskey }}
+				</FormLink>
 				<FormLink v-if="instance.impressumUrl" :to="instance.impressumUrl" external>
 					<template #icon><i class="ti ti-user-shield"></i></template>
 					<template #default>{{ i18n.ts.impressum }}</template>
@@ -87,6 +72,14 @@ SPDX-License-Identifier: AGPL-3.0-only
 				<FormLink to="/channels/an05k2kq5knq00ap">
 					<template #icon><i class="ti ti-message"></i></template>
 					<template #default>{{ i18n.ts.feedback }}</template>
+				</FormLink>
+				<FormLink to="https://yhfx.jwznb.com/share?key=UGHUaiFnRlLU&ts=1780400878" external>
+					<template #icon><i class="ti ti-messages"></i></template>
+					交流群
+				</FormLink>
+				<FormLink to="/@7261230/pages/opensource">
+					<template #icon><i class="ti ti-code"></i></template>
+					{{ i18n.ts.sourceCode }}
 				</FormLink>
 			</div>
 		</div>

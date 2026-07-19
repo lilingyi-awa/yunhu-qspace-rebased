@@ -51,6 +51,7 @@ const headerActions = computed(() => []);
 const headerTabs = computed(() => [{
 	key: 'overview',
 	title: i18n.ts.overview,
+	icon: 'ti ti-database',
 }, {
 	key: 'emojis',
 	title: i18n.ts.customEmojis,

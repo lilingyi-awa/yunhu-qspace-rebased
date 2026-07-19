@@ -21,29 +21,11 @@ SPDX-License-Identifier: AGPL-3.0-only
 
 	<FormSection>
 		<div class="_gaps_m">
-			<MkKeyValue :copy="version">
-				<template #key>Misskey</template>
-				<template #value>{{ version }}</template>
-			</MkKeyValue>
-			<div v-html="i18n.tsx.poweredByMisskeyDescription({ name: instance.name ?? host })">
-			</div>
-			<FormLink to="/about-misskey">
-				<template #icon><i class="ti ti-info-circle"></i></template>
-				{{ i18n.ts.aboutMisskey }}
-			</FormLink>
-			<FormLink v-if="instance.repositoryUrl || instance.providesTarball" :to="instance.repositoryUrl || `/tarball/misskey-${version}.tar.gz`" external>
-				<template #icon><i class="ti ti-code"></i></template>
-				{{ i18n.ts.sourceCode }}
-			</FormLink>
-			<MkInfo v-else warn>
-				{{ i18n.ts.sourceCodeIsNotYetProvided }}
-			</MkInfo>
-		</div>
-	</FormSection>
-
-	<FormSection>
-		<div class="_gaps_m">
 			<FormSplit>
+				<MkKeyValue :copy="version">
+					<template #key>Misskey</template>
+					<template #value>{{ version }}</template>
+				</MkKeyValue>
 				<MkKeyValue :copy="instance.maintainerName">
 					<template #key>{{ i18n.ts.administrator }}</template>
 					<template #value>
@@ -67,30 +49,29 @@ SPDX-License-Identifier: AGPL-3.0-only
 				</MkKeyValue>
 			</FormSplit>
 			<div class="_gaps_s">
+				<FormLink to="/about-misskey">
+					<template #icon><i class="ti ti-info-circle"></i></template>
+					{{ i18n.ts.aboutMisskey }}
+				</FormLink>
 				<FormLink v-if="instance.impressumUrl" :to="instance.impressumUrl" external>
 					<template #icon><i class="ti ti-user-shield"></i></template>
 					<template #default>{{ i18n.ts.impressum }}</template>
 				</FormLink>
-				<MkFolder v-if="instance.serverRules.length > 0">
-					<template #icon><i class="ti ti-checkup-list"></i></template>
-					<template #label>{{ i18n.ts.serverRules }}</template>
-					<ol class="_gaps_s" :class="$style.rules">
-						<li v-for="item in instance.serverRules" :key="item" :class="$style.rule">
-							<div :class="$style.ruleText" v-html="item"></div>
-						</li>
-					</ol>
-				</MkFolder>
-				<FormLink v-if="instance.tosUrl" :to="instance.tosUrl" external>
+				<FormLink to="/@7261230/pages/term-of-services">
 					<template #icon><i class="ti ti-license"></i></template>
-					<template #default>{{ i18n.ts.termsOfService }}</template>
+					<template #default>{{ i18n.ts.serverRules }}</template>
 				</FormLink>
-				<FormLink v-if="instance.privacyPolicyUrl" :to="instance.privacyPolicyUrl" external>
-					<template #icon><i class="ti ti-shield-lock"></i></template>
-					<template #default>{{ i18n.ts.privacyPolicy }}</template>
-				</FormLink>
-				<FormLink v-if="instance.feedbackUrl" :to="instance.feedbackUrl" external>
+				<FormLink to="/channels/an05k2kq5knq00ap">
 					<template #icon><i class="ti ti-message"></i></template>
 					<template #default>{{ i18n.ts.feedback }}</template>
+				</FormLink>
+				<FormLink to="https://yhfx.jwznb.com/share?key=UGHUaiFnRlLU&ts=1780400878" external>
+					<template #icon><i class="ti ti-messages"></i></template>
+					交流群
+				</FormLink>
+				<FormLink to="/@7261230/pages/opensource">
+					<template #icon><i class="ti ti-code"></i></template>
+					{{ i18n.ts.sourceCode }}
 				</FormLink>
 			</div>
 		</div>
@@ -111,17 +92,6 @@ SPDX-License-Identifier: AGPL-3.0-only
 			</FormSplit>
 		</FormSection>
 	</MkSuspense>
-
-	<FormSection>
-		<template #label>Well-known resources</template>
-		<div class="_gaps_s">
-			<FormLink to="/.well-known/host-meta" external>host-meta</FormLink>
-			<FormLink to="/.well-known/host-meta.json" external>host-meta.json</FormLink>
-			<FormLink to="/.well-known/nodeinfo" external>nodeinfo</FormLink>
-			<FormLink to="/robots.txt" external>robots.txt</FormLink>
-			<FormLink to="/manifest.json" external>manifest.json</FormLink>
-		</div>
-	</FormSection>
 </div>
 </template>
 
